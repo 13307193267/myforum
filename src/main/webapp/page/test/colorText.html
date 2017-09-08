@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+*{font-size: 25px;}
+.color_0{
+color: red;
+}
+.color_1{
+color: orange;
+}
+.color_2{
+color: yellow;
+}
+.color_3{
+color: green;
+}
+.color_4{
+color: captiontext;
+}
+.color_5{
+color: Blue;
+}
+.color_6{
+color: purple;
+}
+
+</style>
+<script type="text/javascript" src="../../static/js/jquery-3.1.1.min.js"></script>
+<script>
+var s = $.noConflict();
+s(function(){
+s("p").addClass(function(value){
+	return 'color_'+value;
+});
+});
+</script>
+</head>
+<body>
+<p>abcdefg</p>
+<p>hijklmn</p>
+<p>hijklmn</p>
+<p>hijklmn</p>
+<p>hijklmn</p>
+<p>hijklmn</p>
+<p>hijklmn</p>
+</body>
+</html>

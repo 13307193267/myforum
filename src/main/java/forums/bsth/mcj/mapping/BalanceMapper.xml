@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="forums.bsth.mcj.dao.BalanceMapper">
+	<resultMap id="BaseResultMap" type="forums.bsth.mcj.entity.Balance">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<result column="balance" property="balance" jdbcType="DOUBLE" />
+		<result column="remarks" property="remarks" jdbcType="VARCHAR" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+		<result column="yusuan" property="yusuan" jdbcType="DOUBLE" />
+		<association property="user" column="userid" select="getUser"></association>
+	</resultMap>
+	<sql id="Base_Column_List">
+		*
+	</sql>
+
+	<sql id="sql_count">
+		SELECT COUNT(*)
+	</sql>
+	<sql id="sql_select">
+		SELECT *
+	</sql>
+	<sql id="sql_where">
+		FROM tb_balance
+	</sql>
+
+	<select id="all" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tb_balance
+		<where>
+			<if test="id != null">
+				and id = #{id,jdbcType=INTEGER}
+			</if>
+		</where>
+		<!-- where id = #{id,jdbcType=INTEGER} -->
+	</select>
+
+	<select id="selectUserListWithPage" parameterType="forums.bsth.mcj.util.PageHelper"
+		resultType="forums.bsth.mcj.entity.Balance" resultMap="BaseResultMap">
+		<include refid="sql_select"></include>
+		<include refid="sql_where"></include>
+		<if test="pageNumber != null and  pageSize!= null">
+			limit #{startRow},#{pageSize}
+		</if>
+	</select>
+
+	<select id="selectUserCountWithPage" parameterType="forums.bsth.mcj.util.PageHelper"
+		resultType="Integer">
+		<include refid="sql_count"></include>
+		<include refid="sql_where"></include>
+	</select>
+
+	<select id="getUser" parameterType="java.lang.Integer"
+		resultType="forums.bsth.mcj.entity.User">
+		select *
+		from tb_user
+		where id =
+		#{id,jdbcType=INTEGER}
+	</select>
+
+	<delete id="del" parameterType="java.lang.Integer">
+		delete from tb_balance
+		where id =
+		#{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="add" parameterType="forums.bsth.mcj.entity.Balance">
+		insert into tb_balance (userid,
+		balance,
+		remarks, yusuan
+		)
+		values (#{userid,jdbcType=INTEGER},
+		#{balance,jdbcType=DOUBLE},
+		#{remarks,jdbcType=VARCHAR},#{yusuan,jdbcType=DOUBLE}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="forums.bsth.mcj.entity.Balance">
+		insert into tb_balance
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="userid != null">
+				userid,
+			</if>
+			<if test="balance != null">
+				balance,
+			</if>
+			<if test="remarks != null">
+				remarks,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="yusuan != null">
+				yusuan,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=INTEGER},
+			</if>
+			<if test="balance != null">
+				#{balance,jdbcType=DOUBLE},
+			</if>
+			<if test="remarks != null">
+				#{remarks,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="yusuan != null">
+				#{yusuan,jdbcType=DOUBLE},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="forums.bsth.mcj.entity.Balance">
+		update tb_balance
+		<set>
+			<if test="userid != null">
+				userid = #{userid,jdbcType=INTEGER},
+			</if>
+			<if test="balance != null">
+				balance = #{balance,jdbcType=DOUBLE},
+			</if>
+			<if test="remarks != null">
+				remarks = #{remarks,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="yusuan != null">
+				yusuan = #{yusuan,jdbcType=DOUBLE},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="upd" parameterType="forums.bsth.mcj.entity.Balance">
+		update tb_balance
+		set userid =
+		#{userid,jdbcType=INTEGER},
+		balance = #{balance,jdbcType=DOUBLE},
+		remarks = #{remarks,jdbcType=VARCHAR},
+		yusuan =
+		#{yusuan,jdbcType=DOUBLE}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

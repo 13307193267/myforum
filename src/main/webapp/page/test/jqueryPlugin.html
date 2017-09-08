@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../../static/js/jquery-3.1.1.min.js"></script>
+</head>
+
+<script type="text/javascript">
+	$(function() {
+		function person(username, age, addr) {
+			this.username = username;
+			this.age = age;
+			this.addr = addr;
+			this.display = showMsg;
+		}
+		function showMsg() {
+			$('body').append(
+					"<div class='box'>姓名：" + this.username + "<br>" +
+					"年龄："+ this.age + "<br>" + 
+					"地址 :" + this.addr+ "<br>" + 
+					"职业：" + this.job + "<br>"
+					+ this.sayHello() + "</div>");
+		};
+		var myfriend1 = new person("Jennifer",25,"北京");
+		var myfriend2 = new person("Brian",18,"上海");
+		
+		//扩充对象属性
+		person.prototype.job = "不是学生";
+		//扩充对象方法
+		person.prototype.sayHello = function(){
+			return "Hello!";
+		};
+		myfriend1.display();
+		myfriend2.display();
+		
+	});
+</script>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="forums.bsth.mcj.dao.BbsReplyMapper" >
+  <resultMap id="BaseResultMap" type="forums.bsth.mcj.entity.BbsReply" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="replyid" property="replyid" jdbcType="INTEGER" />
+    <result column="bbsid" property="bbsid" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="replytime" property="replytime" jdbcType="TIMESTAMP" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="forums.bsth.mcj.entity.BbsReply" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, replyid, bbsid, userid, replytime, ip
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_bbs_reply
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_bbs_reply
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="forums.bsth.mcj.entity.BbsReply" >
+    insert into tb_bbs_reply (id, replyid, bbsid, 
+      userid, replytime, ip, 
+      content)
+    values (#{id,jdbcType=INTEGER}, #{replyid,jdbcType=INTEGER}, #{bbsid,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{replytime,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="forums.bsth.mcj.entity.BbsReply" >
+    insert into tb_bbs_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="replyid != null" >
+        replyid,
+      </if>
+      <if test="bbsid != null" >
+        bbsid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="replytime != null" >
+        replytime,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="replyid != null" >
+        #{replyid,jdbcType=INTEGER},
+      </if>
+      <if test="bbsid != null" >
+        #{bbsid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="replytime != null" >
+        #{replytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="forums.bsth.mcj.entity.BbsReply" >
+    update tb_bbs_reply
+    <set >
+      <if test="replyid != null" >
+        replyid = #{replyid,jdbcType=INTEGER},
+      </if>
+      <if test="bbsid != null" >
+        bbsid = #{bbsid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="replytime != null" >
+        replytime = #{replytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="forums.bsth.mcj.entity.BbsReply" >
+    update tb_bbs_reply
+    set replyid = #{replyid,jdbcType=INTEGER},
+      bbsid = #{bbsid,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=INTEGER},
+      replytime = #{replytime,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="forums.bsth.mcj.entity.BbsReply" >
+    update tb_bbs_reply
+    set replyid = #{replyid,jdbcType=INTEGER},
+      bbsid = #{bbsid,jdbcType=INTEGER},
+      userid = #{userid,jdbcType=INTEGER},
+      replytime = #{replytime,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

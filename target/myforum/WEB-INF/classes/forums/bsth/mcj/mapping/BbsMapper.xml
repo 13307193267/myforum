@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="forums.bsth.mcj.dao.BbsMapper" >
+  <resultMap id="BaseResultMap" type="forums.bsth.mcj.entity.Bbs" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="repleycount" property="repleycount" jdbcType="INTEGER" />
+    <result column="replyuserid" property="replyuserid" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="lastreplytime" property="lastreplytime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userid, title, ip, repleycount, replyuserid, createtime, lastreplytime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_bbs
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_bbs
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="forums.bsth.mcj.entity.Bbs" >
+    insert into tb_bbs (id, userid, title, 
+      ip, repleycount, replyuserid, 
+      createtime, lastreplytime)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{repleycount,jdbcType=INTEGER}, #{replyuserid,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{lastreplytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="forums.bsth.mcj.entity.Bbs" >
+    insert into tb_bbs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="repleycount != null" >
+        repleycount,
+      </if>
+      <if test="replyuserid != null" >
+        replyuserid,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="lastreplytime != null" >
+        lastreplytime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="repleycount != null" >
+        #{repleycount,jdbcType=INTEGER},
+      </if>
+      <if test="replyuserid != null" >
+        #{replyuserid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastreplytime != null" >
+        #{lastreplytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="forums.bsth.mcj.entity.Bbs" >
+    update tb_bbs
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="repleycount != null" >
+        repleycount = #{repleycount,jdbcType=INTEGER},
+      </if>
+      <if test="replyuserid != null" >
+        replyuserid = #{replyuserid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastreplytime != null" >
+        lastreplytime = #{lastreplytime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="forums.bsth.mcj.entity.Bbs" >
+    update tb_bbs
+    set userid = #{userid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      repleycount = #{repleycount,jdbcType=INTEGER},
+      replyuserid = #{replyuserid,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      lastreplytime = #{lastreplytime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+*{font-family: "Arial Black","微软雅黑","Microsoft YaHei";}
+#box_num{
+	height: 400px;
+	width: 540px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -270px;
+}
+button ,.div_num{
+	border-radius:4px;
+	box-shadow:0px 10px 14px -7px #3e7327;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 50px;
+	text-align: center;
+	line-height: 100px;
+	padding: 6px 12px;
+	width: 150px;
+	height: 100px;
+	background: linear-gradient(45deg,#7abcff 0%,#60abf8 44%,#4096ee 100%);
+	transition:background 1s ease-out;
+}
+.div_num:HOVER {
+	background:#0099cc;
+}
+#start_play{
+	width: 540px;
+	margin: 0px auto;
+	padding: 30px;
+}
+button{
+	width: 120px;
+	height: 50px;
+	font-size: 15px;
+	padding: 0px;
+	line-height: 20px;
+}

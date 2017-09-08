@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../../static/js/jquery-3.1.1.min.js"></script>
+</head>
+<script type="text/javascript">
+var s = $.noConflict();
+s(function(){
+	s("button").click(function(){
+		s("button").html("<font style='font-size:130px;'>你好</font>").css("color","green");
+		s("div").html("nihao");
+	});
+});
+</script>
+<body>
+<div></div>
+<button>点击就变化</button>
+</body>
+</html>

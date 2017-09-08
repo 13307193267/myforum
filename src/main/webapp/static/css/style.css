@@ -1,0 +1,309 @@
+.login-body {
+	background: url('../page/img/loginBackGround.jpg') fixed;
+	background-size: cover;
+	padding: 0;
+	margin: 0;
+}
+.mainbody {
+	background-image: url(../images/looping-bg.jpg);
+}
+.wrap {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+
+p.form-title {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+	color: #FFFFFF;
+	margin-top: 5%;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+
+form.login {
+	width: 250px;
+	margin: 0 auto;
+}
+
+form.login input[type="text"], form.login input[type="password"] {
+	width: 100%;
+	margin: 0;
+	padding: 5px 10px;
+	background: 0;
+	border: 0;
+	border-bottom: 1px solid #FFFFFF;
+	outline: 0;
+	font-style: italic;
+	font-size: 12px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	margin-bottom: 5px;
+	color: #FFFFFF;
+	outline: 0;
+}
+
+form.login input[type="submit"] {
+	width: 100%;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 500;
+	margin-top: 16px;
+	outline: 0;
+	cursor: pointer;
+	letter-spacing: 1px;
+}
+
+form.login input[type="submit"]:hover {
+	transition: background-color 0.5s ease;
+}
+
+form.login label, form.login a {
+	font-size: 12px;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+
+form.login a {
+	transition: color 0.5s ease;
+}
+
+form.login a:hover {
+	color: #2ecc71;
+}
+
+
+#forgetpwd {
+    float: right;
+}
+
+.cendown{
+    margin-top: 10px;
+}
+
+.pr-wrap {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	display: none;
+}
+
+.show-pass-reset {
+	display: block !important;
+}
+
+.pass-reset {
+	margin: 0 auto;
+	width: 250px;
+	position: relative;
+	margin-top: 38%;
+	z-index: 999;
+	background: #FFFFFF;
+	padding: 20px 15px;
+}
+
+.pass-reset label {
+	font-size: 12px;
+	font-weight: 400;
+	margin-bottom: 15px;
+}
+
+.pass-reset input[type="email"] {
+	width: 100%;
+	margin: 5px 0 0 0;
+	padding: 5px 10px;
+	background: 0;
+	border: 0;
+	border-bottom: 1px solid #000000;
+	outline: 0;
+	font-style: italic;
+	font-size: 12px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	margin-bottom: 5px;
+	color: #000000;
+	outline: 0;
+}
+
+.pass-reset input[type="submit"] {
+	width: 100%;
+	border: 0;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 500;
+	margin-top: 10px;
+	outline: 0;
+	cursor: pointer;
+	letter-spacing: 1px;
+}
+
+.pass-reset input[type="submit"]:hover {
+	transition: background-color 0.5s ease;
+}
+
+.posted-by {
+	position: absolute;
+	bottom: 26px;
+	margin: 0 auto;
+	color: #FFF;
+	background-color: rgba(0, 0, 0, 0.66);
+	padding: 10px;
+	left: 45%;
+}
+
+.error-mess {
+	background: #342d25;
+	border: 1px solid #1d1e1f;
+	height: 26px;
+	line-height: 26px;
+	margin-top: 10px;
+	color: #f35950;
+	width: 100%;
+}
+
+.error-mess .error-icon {
+	display: inline-block;
+	background: url("../images/login-logic-icons.png") no-repeat 0 0;
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	margin: -4px 5px 0 5px;
+}
+
+.error-mess #error-message{
+    font-size: 10px;
+}
+
+
+.colorgraph {
+    height: 5px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: linear-gradient(to right,#c4e17f,#9fc73f 12.5%,#f7fdca 12.5%,#f7fdca 25%,#fecf71 25%,#fecf71 37.5%,#f0776c 37.5%,#f0776c 50%,#db9dbe 50%,#db9dbe 62.5%,#c49cde 62.5%,#c49cde 75%,#669ae1 75%,#669ae1 87.5%,#62c2e4 87.5%,#62c2e4);
+}
+.form-signin input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+}
+
+
+.main-body {
+  background: #F1F3FA;
+}
+
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}

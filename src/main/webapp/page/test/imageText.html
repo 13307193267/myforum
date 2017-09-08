@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../../static/js/jquery-3.1.1.min.js"></script>
+<script>
+$(function(){
+	$.fn.picShow = function(options){};
+	var settings = {
+			start:1,
+			interval:5,
+			transition:{
+				mode:'fade',
+				speed:1000
+			}
+	}
+	$(".picDiv").picshow({
+		interval:2
+	});
+	$.extend(settings,options)
+});
+this.init = function(){
+	this.find(".pictures").css({
+		height:'330px',
+		width:'600px'
+	});
+}
+</script>
+<style>
+.picDiv ul{
+list-style-type: none;/* 不显示项目符号 */
+margin: 0px;
+padding: 0px;
+font-family: Geneva,Arial,Verdana;
+}
+.picDiv .navigation li{
+display: inline-block;  
+}
+
+</style>
+</head>
+<body>
+<div class="picDiv">
+<a href="#" onclick="handler(); return false;">a</a>
+<ul class="navigation">
+<li><a href="#" class="stop">stop</a></li>
+<li><a href="#" class="play">play</a></li>
+</ul>
+<ul class="pictures"></ul>
+</div>
+</body>
+</html>

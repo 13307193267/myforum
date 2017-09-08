@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="forums.bsth.mcj.dao.RechargeMapper">
+	<resultMap id="BaseResultMap" type="forums.bsth.mcj.entity.Recharge">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<result column="yusuan" property="yusuan" jdbcType="DOUBLE" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, userid, yusuan
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from tb_recharge
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from tb_recharge
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="forums.bsth.mcj.entity.Recharge">
+		insert into tb_recharge (id, userid, yusuan
+		)
+		values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER},
+		#{yusuan,jdbcType=DOUBLE}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="forums.bsth.mcj.entity.Recharge">
+		insert into tb_recharge
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="userid != null">
+				userid,
+			</if>
+			<if test="yusuan != null">
+				yusuan,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=INTEGER},
+			</if>
+			<if test="yusuan != null">
+				#{yusuan,jdbcType=DOUBLE},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="forums.bsth.mcj.entity.Recharge">
+		update tb_recharge
+		<set>
+			<if test="userid != null">
+				userid = #{userid,jdbcType=INTEGER},
+			</if>
+			<if test="yusuan != null">
+				yusuan = #{yusuan,jdbcType=DOUBLE},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="forums.bsth.mcj.entity.Recharge">
+		update tb_recharge
+		set userid = #{userid,jdbcType=INTEGER},
+		yusuan = #{yusuan,jdbcType=DOUBLE}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../static/css/youxi.css">
+<script type="text/javascript" src="../static/js/jquery-3.1.1.min.js"></script>
+<!-- <script type="text/javascript">
+var t,n,count = 0;
+		$(function(){
+			$("button").click(function(){
+				num_click(9);
+				　t = setInterval("showAuto()", 1000);
+			});
+			
+		});
+		function showAuto(){
+				//改变内容.html()
+			　　$('#num').html(count++);
+
+			}
+		
+</script> -->
+<script type="text/javascript">
+	var s,a = 0;
+	$(function() {
+
+		$("#start").click(function() {
+
+			s=setInterval(function() {
+				$('#num').html(++a).css("color", 'green');
+			}, 1000);
+		});
+		$("#end").click(function() {
+
+			clearInterval(s);
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="start_play">
+		<button id="start">开始</button>
+		<button id="end">停止</button>
+		&nbsp; <span id="num">0</span>秒
+	</div>
+	<div id="box_num"></div>
+</body>
+</html>
